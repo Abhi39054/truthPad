@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>truthPad - A sharable notepad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jersey+25+Charted&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assests/icon.jpg" type="image/icon type">
+    <style>
+        body{
+            font-family: 'Caveat', sans-serif;
+        }
+        nav{
+            width: auto;
+            height: auto;
+            background-color: #EEF7FF;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20pt;
+            border: 1px solid black;
+            border-right: none;
+            border-left: none;
+        }
+        nav a{
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            /*position: fixed;*/
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            font-size: 13pt;
+        }
+
+        #main{
+            width: 80%;
+            height: 100%;
+            /* border: 2px solid black; */
+            text-align: center;
+            padding: 10px;
+            margin: auto;
+        }
+        div textarea{
+            width: 90%;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <span><a href="/new">truthPad</a></span>
+    </nav>
+
+    <div id="main">
+        <form action="{{ url_for('submit')}}" method="post">
+            <textarea name="textarea" id="textarea" cols="30" rows="40">{{text_value}}</textarea> <br>
+            <button name="submit">submit</button>
+            <input type="text" name="save_url" id="save_url" value="{{url_value}}" >
+        </form>
+    </div>
+
+
+    <footer>
+        <p>&#169; truth.com - All rights reserved.</p>
+    </footer>
+</body>
+</html>
